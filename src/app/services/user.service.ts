@@ -79,21 +79,20 @@ export class UserService {
 
   getAdminDetail(adminId) : Observable<any>
   {
-      let url = this.baseUrl + "getAdminData/" + adminId;
-
-       // create an instance of Header object.
-      let headers = new Headers();
+      let url = this.baseUrl + "users/" + adminId;
 
       // get token from localStorage.
       let token = localStorage.getItem('token');
 
+    let headers = new Headers({
+      'Authorization': `Bearer ${token}`
+    })
+
       // Append Authorization header.
-      headers.append('Authorization' , 'Bearer ' + token);
+    headers.set("Authorization", 'Bearer ' + localStorage.getItem('token'));
 
-      // create object of RequestOptions and include that in it.
-      let options = new RequestOptions( { headers : headers } );
 
-      return this.http.get(url , options);
+      return this.http.get(url , { headers: headers });
   }
 
   verifyAccount (token : Token) : Observable<any>

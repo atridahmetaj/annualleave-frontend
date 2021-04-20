@@ -42,14 +42,14 @@ export class LoginComponent implements OnInit {
         response => {
             let result =  response.json();
 
-            if(result > 0)
+            if(result != null)
             {
-              let token = response.headers.get("Authorization");
+              let token = result.httpHeader.Authorization[0];
 
               localStorage.setItem("token" , token);
-              localStorage.setItem("id" , result);
+              localStorage.setItem("id" , result.user.id);
 
-              this.router.navigate(['/profile', result]);
+              this.router.navigate(['/profile', result.user.id]);
             }
             if(result == -1)
             {

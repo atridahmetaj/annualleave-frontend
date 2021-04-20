@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 // import Http module
 import { HttpModule} from '@angular/http';
 
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 // import ReactiveFormsModule for reactive form
 import { ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +20,7 @@ import { UserService } from './services/user.service';
 import { ProfileComponent } from './profile/profile.component';
 import { VerifyComponent } from './verify/verify.component';
 import { VacationsComponent } from './vacations/vacations.component';
+import {AuthInterceptor} from './services/interceptor';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { VacationsComponent } from './vacations/vacations.component';
 
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     UserService
   ],
   bootstrap: [AppComponent]

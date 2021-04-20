@@ -4,6 +4,7 @@ import {Http} from '@angular/http';
 import {Token} from '../classes/token';
 import {UserService} from '../services/user.service';
 import {User} from '../classes/user';
+import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
   selector: 'app-verify',
@@ -30,7 +31,15 @@ export class VerifyComponent implements OnInit {
     this.userService.verifyAccount(this.token).subscribe((data)=>{
       console.log(data);
       this.user = data['user'];
+      if (data.status == 200){
+        this.router.navigate(['/login']);
+      }
+      else {
+
+      }
     });
+
+
   }
 
 }
