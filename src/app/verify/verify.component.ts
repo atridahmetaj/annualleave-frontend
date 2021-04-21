@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Http} from '@angular/http';
 import {Token} from '../classes/token';
 import {UserService} from '../services/user.service';
 import {User} from '../classes/user';
-import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
   selector: 'app-verify',

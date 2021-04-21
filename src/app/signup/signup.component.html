@@ -1,47 +1,48 @@
-<h2>SignUp form</h2>
+<div style="text-align: center">
+  <h2>SignUp form</h2>
+</div>
+  <form [formGroup]="form" #AdminInformation (ngSubmit)="AdminForm(AdminInformation)">
 
-<form [formGroup]="form" #AdminInformation (ngSubmit)="AdminForm(AdminInformation)">
-
-  <div class="row">
-    <div class=" col-md-offset-1 col-md-4">
+    <div class="row">
+      <div class=" col-md-offset-1 col-md-4">
         <label for="fullName"> Name </label>
-        <input formControlName="fullName" class="form-control" type="text"> 
+        <input formControlName="fullName" class="form-control" type="text">
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class=" col-md-offset-1 col-md-4">
+    <div class="row">
+      <div class=" col-md-offset-1 col-md-4">
         <label for="email"> Email </label>
-        <input formControlName="email" class="form-control" type="text"> 
+        <input formControlName="email" class="form-control" type="text">
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class=" col-md-offset-1 col-md-4">
+    <div class="row">
+      <div class=" col-md-offset-1 col-md-4">
         <label for="password"> Password </label>
-        <input formControlName="password" class="form-control" type="password"> 
+        <input formControlName="password" class="form-control" type="password">
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class=" col-md-offset-1 col-md-4">
+    <div class="row">
+      <div class=" col-md-offset-1 col-md-4">
         <label for="confirmPassword"> Confirm Password </label>
-        <input formControlName="confirmPassword" class="form-control" type="password"> 
+        <input formControlName="confirmPassword" class="form-control" type="password">
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class=" col-md-offset-1 col-md-4">
+    <div class="row">
+      <div class=" col-md-offset-1 col-md-4">
         <label for="role"> Role </label>
-        <input formControlName="role" class="form-control" type="text"> 
+        <input formControlName="role" class="form-control" type="text">
+      </div>
     </div>
-  </div>
 
-  <div class="row" style="margin-top: 40px;">
-    <div class="col-md-offset-1 col-md-4">
-        <button class="btn btn-md btn-primary btn-style"  >Save</button>
+    <div class="row" style="margin-top: 40px;">
+      <div class="col-md-offset-1 col-md-4">
+        <button class="btn btn-md btn-primary btn-style">Save</button>
+      </div>
     </div>
-  </div>
 
 
-</form>
+  </form>

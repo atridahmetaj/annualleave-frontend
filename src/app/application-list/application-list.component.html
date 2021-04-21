@@ -1,0 +1,63 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by title"
+        [(ngModel)]="type"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchTitle()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Applications List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let application of applications; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveTutorial(application, i)"
+      >
+        {{ application.applicationType }}
+      </li>
+    </ul>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllApplications()">
+      Remove All
+    </button>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentApplication">
+      <h4>Application</h4>
+      <div>
+        <label><strong>From: </strong></label> {{ currentApplication.from.substr(0, currentApplication.from.indexOf('T')) }}
+      </div>
+      <div>
+        <label><strong>To:</strong></label>
+        {{ currentApplication.to.substr(0, currentApplication.to.indexOf('T')) }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentApplication.status }}
+      </div>
+
+      <a class="badge badge-warning" routerLink="/applications/{{ currentApplication.id }}">
+        Edit
+      </a>
+    </div>
+
+    <div *ngIf="!currentApplication">
+      <br />
+      <p>Please click on an Application...</p>
+    </div>
+  </div>
+</div>

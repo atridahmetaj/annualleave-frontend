@@ -1,18 +1,20 @@
-<h2>SignUp form</h2>
 
-<form [formGroup]="form" #LoginInformation (ngSubmit)="Login(LoginInformation)">
+<div style="text-align: center">
+<h2>Sign in form</h2>
+</div>
+<form class="loginForm" [formGroup]="form" #LoginInformation (ngSubmit)="Login(LoginInformation)">
 
   <div class="row">
     <div class=" col-md-offset-1 col-md-4">
         <label for="email"> Email </label>
-        <input formControlName="email" class="form-control" type="text"> 
+        <input formControlName="email" class="form-control" type="text">
     </div>
   </div>
 
   <div class="row">
     <div class=" col-md-offset-1 col-md-4">
         <label for="password"> Password </label>
-        <input formControlName="password" class="form-control" type="password"> 
+        <input formControlName="password" class="form-control" type="password">
     </div>
   </div>
 
@@ -23,3 +25,4 @@
   </div>
 
 </form>
+
